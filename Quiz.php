@@ -24,11 +24,11 @@ echo "Question 5: How often does Mitch Lightfoot sleep in class?<br>";
 echo "  You answered: " . $sleep . "<br>";
 echo "  Right answer: ALL THE F****** TIME<br><br>";
 
-if($player == "DOK") $score += 20;
-if($per== "77.1") $score += 20;
-if($rank == "1") $score += 20;
-if($berries == "5") $score += 20;
-if($sleep == "ALL THE FUCKING TIME") $score += 20;
-echo "<h2>Your score: " . $score/20 . " out of 5 right! Rock Chalk!</h2>";
-echo "<h2>Your score: </h2><h1>{$score}%</h1>";
+if($player == "DOK") $userScore += 20;
+if($per== "77.1") $userScore += 20;
+if($rank == "1") $userScore += 20;
+if($berries == "5") $userScore += 20;
+if($sleep == "ALL THE F****** TIME") $userScore += 20;
+echo "<h2>Your score: " . $userScore/20 . " out of 5 right! Rock Chalk!</h2>";
+echo "<h2>Percentage: </h2><h2>{$userScore}%</h2>";
 ?>
