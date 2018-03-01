@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Lab 4: Exercise 3</title>
+      <link rel="stylesheet" href="style.css">
+      <script src="formChecker.js"></script>
+  </head>
+    <body onload = "loadFunc()">
+      <div id = "container">
+      <h1>Greetings traveler, welcome to Bill Self's Fan Store!</h1>
+      <form action = "customerBackend.php" method ="Post" onsubmit="return validate()" id="ex3form">
+        <h2>Please enter the following information: </h2>
+        <input type="text" placeholder="E-mail" name="uNameFE" max="240">
+        <br>
+        <input type="password" placeholder="Password" name="pwdFE" max="64">
+        <br>
+        <div>
+          <h2>Browse Self's belongings: </h2>
+          <div class = "stuff">
+            <h3>1) Self's used towel from the 2008 Championship's game day</h3>
+             $4000.00: <input type="checkbox" class="cBox" id="1"><br><br>
+             <input type="number" min="0" id="1" class="invisible" placeholder="How many?" name="4grand"><br>
+           </div>
+          <div class = "stuff">
+            <h3>2) Autographed photograph of him pulling into his driveway</h3>
+            $2000.00: <input type="checkbox" class="cBox" id="1"><br><br>
+            <input type="number" min="0" id="2" class="invisible" placeholder="How many?" name="2grand"><br>
+          </div>
+          <div class = "stuff">
+            <h3>3) Cassette recording of Self yelling at Mitch Lightfoot (Which in an ideal world would be priceless)</h3>
+            $6000.00: <input type="checkbox" class="cBox" id="1"><br><br>
+            <input type="number" min="0" id="3" class="invisible" placeholder="How many?" name="6grand"><br>
+          </div>
+        </div>
+        <div>
+        <h2>Choose a delivery option: </h2>
+          One week:  $0 <input type="radio" name="del" id="week" value="0"><br>
+          3 days:    $5 <input type="radio" name="del" id="threeDay" value="5"><br>
+          Overnight: $50 <input type="radio" name="del" id="manana" value="50"><br>
+        </div>
+        <br> <br>
+        <div>
+        <button type="button" onclick="reset(); hideAmounts();">Click to reset order</button>
+        <br><br>
+        <input type="submit" value="Submit your order">
+      </div>
+</form>
+</div>
+</body>
+</html>
