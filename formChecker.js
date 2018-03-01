@@ -36,18 +36,70 @@ function deleteBoxes() {
   }
 }
 
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+function vEmail(email) {
+    var testMe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return testMe.test(String(email).toLowerCase());
 }
 
 function validate() {
-  var inputs = getVisibleInputs();
-  var isTFull = validateTexts(inputs);
+  var inputs = showInputs();
+  var isTFull = textCheck(inputs);
   var isFull = validateQuantities(inputs);
   var isCheck = true;
   var temp = document.getElementsByTagName("input")
   if((temp[8].checked == temp[9].checked) && (temp[10].checked == false)) {
+    alert("Pick a delivery option buster.");
+    isCheck = false;
+  }
+  if(isTFull && isFull && isCheck) return true;
+  else return false;
+}
+
+function showInputs() {
+  var tIn = document.getElementsByTagName("input");
+  var vIn = [];
+  for(var i = 0; i < tIn.length; i++) {
+    if(!tIn[i].classList.contains("invisible")){
+      vIn.push(tIn[i]);
+    }
+  }
+  return vIn;
+}
+
+function textCheck(inputs) {
+  if(inputs[0].value == "") {
+    alert("No email");
+    return false;
+  }
+  else if(inputs[1].value.length < 8) {
+    alert("Password not long enough");
+    return false;
+  }
+  else if(!vEmail(inputs[0].value)){
+    alert("Does this work.");
+    return false;
+  }
+  else return true;
+}
+
+/*function validateQuantities(inputs) {
+messing everything up sos
+  if(ins.length == 0) {
+    alert("Coach Self would be so upset, c'mon where's the hustle!");
+    return false;
+  }
+  return true;
+}
+*/
+
+function amounts(inputs) {
+  let something = [];
+  for(var i = 0; i < inputs.length; i++) {
+    if(inputs[i].type == "number") something.push(inputs[i]);
+  }
+  return something;
+}
+
     alert("Pick a delivery option buster.");
     isCheck = false;
   }
